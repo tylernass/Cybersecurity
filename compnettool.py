@@ -23,42 +23,56 @@
 from tkinter import *
 from scapy.all import *
 import Tkinter
-import tkinter as tk
-from tkinter import ttk
-import tkMessageBox
+
 NORM_FONT = ("Helvetica", 10)
 buttons = ["Port Scan", "IP Address Scan", "Sniff Packets"]
 
+def scan():
+    print("1")
 
-# def snf(pkt):
-#     a = sniff(count=int(pkt))
-#
-#     popup = tk.Tk()
-#     for i in range(len(a)):
-#         popup.wm_title("Network Report")
-#         label = ttk.Label(popup, text=a[i].summary(), font=NORM_FONT)
-#         label.pack(side="top", fill="x", pady=10)
-#
-#     popup.mainloop()
+def ip():
+    print("2")
 
-master = Tk()
+def sniff():
+    print("3")
 
-# e = Entry(master)
-# e.pack()
-#
-# e.focus_set()
 
-def function(i):
-    print(i)
 
-for i in range(len(buttons)):
-    b = Tkinter.Button(master, text=buttons[i], command=function(i))
-    b.pack()
+
+master = Tkinter.Tk()
+
+a = Tkinter.Button(master, text=buttons[0], command= lambda: scan())
+a.pack()
+
+b = Tkinter.Button(master, text=buttons[1], command = lambda: ip())
+b.pack()
+
+c = Tkinter.Button(master, text=buttons[2], command = lambda: sniff())
+c.pack()
+i=j=k=0
+
+if(a):
+    if(i >= 1):
+        scan()
+    else:
+        i += 1
+
+if(b):
+    if (j >= 1):
+        ip()
+    else:
+        j += 1
+
+if(c):
+    if (k >= 1):
+        sniff()
+    else:
+        k += 1
+
 
 mainloop()
 e = Entry(master, width=50)
 
-# text = e.get()
 def makeentry(parent, caption, width=None, **options):
     Label(parent, text=caption).pack(side=LEFT)
     entry = Entry(parent, **options)
@@ -67,8 +81,6 @@ def makeentry(parent, caption, width=None, **options):
     entry.pack(side=LEFT)
     return entry
 
-# user = makeentry(parent, "User name:", 10)
-# password = makeentry(parent, "Password:", 10, show="*")
 content = StringVar()
 entry = Entry(parent, text=caption, textvariable=content)
 
