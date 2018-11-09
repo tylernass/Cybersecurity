@@ -11,7 +11,7 @@ NORM_FONT = ("Helvetica", 10)
 
 top = tkinter.Tk()
 
-IP = socket.gethostbyname(socket.gethostname('https://canyouhack.us'))
+IP = socket.gethostbyname(socket.gethostname())
 remoteServerIP = socket.gethostbyname(IP)
 
 def hello(OPm, IPm):
