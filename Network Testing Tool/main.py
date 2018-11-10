@@ -3,19 +3,18 @@ from scapy.all import *
 import Tkinter
 from tkinter import *
 from scapy.all import *
-import snff
-import ipp
+
+import snff, prt, ipp
 
 NORM_FONT = ("Helvetica", 10)
 buttons = ["Port Scan", "IP Address Scan", "Sniff Packets"]
 
 
 def scn():
-    print("1")
+    prt.man()
 
 def ip():
     ipp.man()
-
 
 def sniff():
     snff.man()
