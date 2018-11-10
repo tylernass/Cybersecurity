@@ -1,47 +1,29 @@
-# Network tool for running: Port Scan, IP Address Scan, and Sniffing IP Packets
-
-# 4 windows for portal to
-# import Tkinter
-#
-# buttons = ["Port Scan", "IP Address Scan", "Sniff Packets"]
-#
-# win = Tkinter.Tk()
-# def prnt(i):
-#     print(i+1)
-#
-# for i in range(len(buttons)):
-#     b = Tkinter.Button(win, text=buttons[i], command=prnt(i))
-#     b.pack()
-#
-# win.mainloop()
-
-
-
-
-##########################
-
-from tkinter import *
 from scapy.all import *
 import Tkinter
+from tkinter import *
+from scapy.all import *
+
+import snff, prt, ipp
 
 NORM_FONT = ("Helvetica", 10)
 buttons = ["Port Scan", "IP Address Scan", "Sniff Packets"]
 
-def scan():
-    print("1")
+
+def scn():
+    prt.man()
 
 def ip():
-    print("2")
+    ipp.man()
 
 def sniff():
-    print("3")
+    snff.man()
 
 
 
 
 master = Tkinter.Tk()
 
-a = Tkinter.Button(master, text=buttons[0], command= lambda: scan())
+a = Tkinter.Button(master, text=buttons[0], command= lambda: scn())
 a.pack()
 
 b = Tkinter.Button(master, text=buttons[1], command = lambda: ip())
@@ -53,7 +35,7 @@ i=j=k=0
 
 if(a):
     if(i >= 1):
-        scan()
+        scn()
     else:
         i += 1
 
