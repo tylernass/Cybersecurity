@@ -41,3 +41,6 @@ def man():
     e = Entry(master, width=50)
     e.pack()
     text = e.get()
+
+if __name__ == '__main__':
+    man()
