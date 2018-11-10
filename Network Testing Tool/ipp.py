@@ -54,4 +54,5 @@ def man():
 
     top.mainloop()
 
-man()
+if __name__ == '__main__':
+    man()
