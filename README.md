@@ -7,8 +7,7 @@ Overview:
 - Most of the code that I have committed features workable code and commented code (#) that did not work for some reason and or was a rough draft. 
 - My philosophy with these projects is to push and commit as much code as possible in whatever condition, to capture the evolution of the project and my thought process.
 
-Technologies Used: Python, JSON
-Projects: 
+Featured Projects: 
 - JSON Parser (Python, JSON)
 - Program to scan open ports, IP Address, and sniff packets (Python, Scapy, Tkinter, Socket)
 
