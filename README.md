@@ -8,6 +8,6 @@ Overview:
 - My philosophy with these projects is to push and commit as much code as possible in whatever condition, to capture the evolution of the project and my thought process.
 
 Featured Projects: 
-- JSON Parser (Python, JSON)
-- Program to scan open ports, IP Address, and sniff packets (Python, Scapy, Tkinter, Socket)
+- Dr. Brewster Research: JSON Parser (Python, JSON)
+- Personal Project: Program to scan open ports, IP Address, and sniff packets (Python, Scapy, Tkinter, Socket)
 
