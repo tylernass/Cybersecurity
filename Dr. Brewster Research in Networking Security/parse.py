@@ -13,9 +13,27 @@ for line in open('5432.json', 'r'):
     if '}' in line:
         list.append(i)
 
+comma = ','
 
-print(file[1])
-#
+for x in range(0, len(list)):
+    y = file[list[x]-2]
+    z = len(y)
+    a = y[z-2]
+    if x == 0: b = 2
+    else: b = list[x]
+    # print(list[x])
+    if a == comma:
+        ntxt = file[list[x]-2][0:(z-2)]
+        file[b-1] = ntxt
+        del(file[b-2])
+        # print(file[list[x]])
+
+
+
+for i in range(0, len(file)):
+    print(file[i])
+
+
 # for i in range(0, len(list)-1):
 #     x = ""
 #     if i == 0:
