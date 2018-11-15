@@ -1,7 +1,3 @@
-# Description: Used to parse a JSON File line by line and remove improper formats such as extraenous commas
-# Technologies used: JSON, Python
-
-
 i=x=0
 list = []
 file = []
@@ -19,13 +15,14 @@ for x in range(0, len(list)):
     y = file[list[x]-2]
     z = len(y)
     a = y[z-2]
-    if x == 0: b = 2
-    else: b = list[x]
+    # if x == 0:
+    #     b = 2
+    # else: b = list[x]
     # print(list[x])
     if a == comma:
         ntxt = file[list[x]-2][0:(z-2)]
-        file[b-1] = ntxt
-        del(file[b-2])
+        file[list[x]-2] = ntxt
+        # del(file[list[x]-3])
         # print(file[list[x]])
 
 
