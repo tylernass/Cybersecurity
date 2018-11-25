@@ -32,7 +32,7 @@ def iter(line, j):
         if line[k] == '"':
             chck(line, j, k)
             if(chck(line, j, k) == 1):
-                fline.append(line[0:len(line)])
+                fline.append(line[0:len(line)-1])
                 # print(fline[k])
                 # print(line[(j+1): (k)])
                 # print('bad')
@@ -41,14 +41,21 @@ def iter(line, j):
                 break
 
 
-
+# Do all of the lines get passed in as they are supposed to? Yes
 def chck(line, j, k):
     z = line[(j+1): (k)]
+    # b = line[(k): (k)+1]
+    # print(b)
+    print(z)
     check = 0
+    ###### THIS IS WHERE THE ERROR IS ####
     for a in range(0, len(ftag)):
         # print(a)
+        # Where the error should be handled
         if z == ftag[a]:
             check = 1
+        # else:
+        #     check = 0
         a += 1
     return check
 
@@ -56,6 +63,7 @@ with open('5432-3pkts.json', 'r') as g:
     lines = g.readlines()
     for i in range(0, len(lines)):
         line = lines[i]
+        # print(line)
         for j in range(0, len(line)):
             if line[j] == '"':
                 iter(line, j)
@@ -67,8 +75,22 @@ for x in range(0, len(params)):
         if(list[y] == params[x]):
             a += 1
 
+with open('Corrected-5432--3pkts-out.json', 'w') as f:
+    for i in range(0, len(fline)):
+        # Opening Brackets
+        if fline[i][6:11] == "index":
+            f.write("{\n")
+            f.write(fline[i] + "\n")
+        # Close brackets
+        if fline[i][11:23] == "pgsql.status":
+            f.write(fline[i] + "\n")
+            f.write("}\n\n")
+        # Normal write
+        if fline[i][6:11] != "index" and fline[i][11:23] != "pgsql.status":
+            f.write(fline[i] + "\n")
 
-print(fline[3])
+    f.close()
+
 # with open('json-transforms.csv', 'r') as f:
 #     lines = f.readlines()
 #     # for line in lines:
