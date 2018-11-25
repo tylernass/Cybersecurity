@@ -10,4 +10,5 @@ Overview:
 Featured Projects: 
 - Dr. Brewster Research: JSON Parser (Python, JSON)
 - Personal Project: Program to scan open ports, IP Address, and sniff packets (Python, Scapy, Tkinter, Socket)
+- Automated Malware Project: Malware tool that can be used for network security, automatically sending malware at random times
 
