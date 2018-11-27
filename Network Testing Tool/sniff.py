@@ -1,46 +1,53 @@
 from tkinter import *
-from scapy.all import *
-import tkinter as tk
-from tkinter import ttk
 
-NORM_FONT = ("Helvetica", 10)
+attacks = ["Malware", "Network Attack", "Scapy"]
+methods = ["Enter # of attacks to run: ", "Enter time period for attacks: "]
+num = freq = 0
 
-def snf(pkt):
-    a = sniff(count=int(pkt))
+def init():
+    def nm():
+        c = Tk()
 
-    popup = tk.Tk()
-    scrollbar = Scrollbar(popup)
-    scrollbar.pack(side=RIGHT, fill=Y)
+        e1 = Entry(c)
+        e1.pack()
+        e2 = Entry(c)
+        e2.pack()
 
-    mylist = Listbox(popup, yscrollcommand=scrollbar.set)
-    popup.wm_title("Network Report")
-    for i in range(len(a)):
-        label = ttk.Label(popup, text=a[i].summary(), font=NORM_FONT)
-        label.pack(side="top", fill="x", pady=10)
+        a = e1.get()
+        e1.grid(row=0, column=1)
+        Label(c, text=methods[0]).grid(row=0)
 
-    mylist.pack(side=LEFT, fill=BOTH)
-    scrollbar.config(command=mylist.yview)
-    popup.mainloop()
+        b=e2.get()
+        e2.grid(row=1, column=1)
+        Label(c, text = methods[1]).grid(row=1)
 
-def man():
-    master = Tk()
+        Button(c, text = "Enter", command=lambda: gt()).grid(row=0, column=2)
+        Button(c, text= "Enter", command=lambda: gt()).grid(row=1, column=2)
+        z = Button(c, text="Return to main menu", height=1, width=18, command=lambda: init())
+        z.grid(row=2, column=1)
 
-    e = Entry(master)
-    e.pack()
 
-    e.focus_set()
+        def gt():
+            a = e1.get()
 
-    def callback():
-        pkt = e.get()
-        snf(pkt)
+        # d = Button(c, text=methods[0], height=1, width=18, command=lambda: time())
+        # d.pack(side = LEFT, row=0)
+        # num = Entry(c, width = 10)
+        # num.pack(side = LEFT, row=0)
+        #
+        # z = Button(c, text="Return to main menu", height=1, width=18, command=lambda: init())
+        # z.pack(row=1)
+        c.mainloop()
+        a.destroy()
 
-    b = Button(master, text="How many packets would you like to send?", width=40, command=callback)
-    b.pack()
+    a = Tk()
+    for x in range(len(attacks)):
+        b = Button(a, text=attacks[x], height=1, width=10, command=lambda: nm())
+        b.pack()
+    if(b == 0): print('Mal')
+    a.mainloop()
 
-    mainloop()
-    e = Entry(master, width=50)
-    e.pack()
-    text = e.get()
 
-if __name__ == '__main__':
-    man()
+init()
+
+print(freq)
