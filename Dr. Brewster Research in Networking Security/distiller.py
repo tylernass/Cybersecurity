@@ -41,7 +41,6 @@ def iter(line, j):
                 break
 
 
-
 def chck(line, j, k):
     z = line[(j+1): (k)]
     b = line[(j+1): (k+1)]
@@ -70,60 +69,37 @@ for x in range(0, len(params)):
         if(list[y] == params[x]):
             a += 1
 
+# TODO Exclusion rule defined in JSON-filtering.pdf
+# Create a function open
+# Count the number for '{' parenthese
+# Create a for loop that appropriately adds those parnetheses
+# This is where the work needs to be done
+# Store the closed brackets originally after opening bracket
 
-with open('Corrected-5432--3pkts-out.json', 'w') as f:
-    nxt = 0
-    for i in range(0, len(fline)-3): # Iterate top down, line by line
-        # Detect a comma on the next line
-        for j in range(0, len(fline[i])): # Iterate from left to right, beginning to end of line
-        # Conditions: No comma, no forward bracket
-            if fline[i][j] == ',' or fline[i][j] == '{':
-                nxt = 1
-        if fline[i][6:11] == "index":
-            f.write("{\n")
-            f.write(fline[i] + "\n")
-        # Close brackets
-        # if fline[i][11:23] == "pgsql.status":
-        #     f.write(fline[i] + "\n")
-        #     f.write("}\n\n")
-        # Normal write
-        if fline[i][6:11] != "index" and fline[i][11:23] != "pgsql.status":
-            f.write(fline[i+3] + "},\n")
-        if nxt == 0:
-            f.write(fline[i] + '},\n')
-
-
-
-    f.close()
-
-# with open('json-transforms.csv', 'r') as f:
-#     lines = f.readlines()
-#     # for line in lines:
-#     for i in range(1, len(lines)):
-#         line = lines[i]
-#         for j in range(0, len(line)):
-#             if line[j] == ',':
-#                 params.append(line[:j])
-#                 break
-#             else:
-#                 j += 1
-            # elif line[j] == ',':
-            #     params.append(line[:j])
-            #     print(i)
-    # f.close()
+def opn():
+    frwd = 0
+    c = 0
+    # for a in range(0, len(fline)):
+    #     for b in range(0, len(fline[a])):
+    #         if fline[a][b] == '{':
+    #            frwd += 1
+    with open('Corrected-5432--3pkts-out.json', 'w') as f:
+        for i in range(0, len(fline)-1):
+            # for j in range(0, len(fline[i])):
+                x = any(i in ',{' for i in fline[i])
+                if fline[i][6:11] == "index":
+                        f.write("{\n")
+                        f.write(fline[i] + "\n")
+                if x == False:
+                    c += 1
+                    f.write(fline[i])
+                    f.write('\n')
+                    f.write("        },\n")
+                    print(i)
+                if fline[i+1][6:11] == "index" and fline[i+2][6:11] != "index":
+                    f.write('\n')
+                    f.write("  }\n\n")
+                elif x == True:
+                    f.write(fline[i] + '\n')
 
 
-# print(params)
-    # line = lines
-    # for i in range(0, len(params)):
-    #     for x in range(0, len(list)):
-    #         y = file[list[x] - 2]
-    #         z = len(y)
-    #         a = y[z - 2]
-    #         # if x == 0:
-    #         #     b = 2
-    #         # else: b = list[x]
-    #         # print(list[x])
-    #         if a == comma:
-    #             ntxt = file[list[x] - 2][0:(z - 2)]
-    #             file[list[x] - 2] = ntxt
