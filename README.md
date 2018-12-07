@@ -8,7 +8,9 @@ Overview:
 - My philosophy with these projects is to push and commit as much code as possible in whatever condition, to capture the evolution of the project and my thought process. These projects are very far from perfect, and as such, they present the opportunity to build upon my ideas.
 
 Featured Projects: 
-- Dr. Brewster Research: JSON Parser (Python, JSON)
-- Personal Project: Program to scan open ports, IP Address, and sniff packets (Python, Scapy, Tkinter, Socket)
-- Automated Malware Project: Malware tool that can be used for network security, automatically sending malware at random times
+- Automated Malware Tool: Malware tool that can be used for network security, automatically sending malware at random times
+- Dr. Brewster Research: Python program to analyze and filter out certain network fields from Postgres database
+- Dr. Franklin Research: Data forecasting for electricity prices in Chicago, using Numpy and Pandas to understand the relationship between electricity prices and weather, time of day, time of year, household size, etc.
+- Dr. Jiang Research: Building a distributed network for Google AIY Vision kits to emulate a real world Distributed Network and conduct further research on how to properly distribute computing resources on a network for surveillance cameras
+- Network Testing Tool: Basic tool to test certain aspects of a network
 
