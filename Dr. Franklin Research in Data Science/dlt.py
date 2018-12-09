@@ -3,4 +3,4 @@
 def dlt():
     for i in os.listdir():
         if i[-3:] == "zip":
-            os.remove(i)
+            os.remove(i) 
