@@ -1,4 +1,4 @@
-# Description: Script to migrate files in a database
+# Description: Used to migrate ~25 .zip files from a central repository to an individual repository
 
 import os
 loc = "/tartarus/tylernass"
@@ -11,7 +11,7 @@ def migrate(loc):
 
 def crtdir(nw):
     a=0
-    for i in os.listdir():
+    for i in range(0, 25):
         a += 1
         os.mkdir(nw + str(a))
 
