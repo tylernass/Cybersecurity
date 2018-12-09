@@ -2,8 +2,8 @@
 
 # MIGRATE SCRIPT
 import os
-loc = "/tartarus/tylernass"
-nw = "/tartarus/DATASETS/SmartMeterData"
+loc = "/tartarus/tylernass" # This is the "individual repository"
+nw = "/tartarus/DATASETS/SmartMeterData" # Tis is the "central repository"
 
 a = -
 def migrate(loc):
